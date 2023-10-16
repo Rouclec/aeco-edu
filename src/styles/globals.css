@@ -2,26 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Clash";
+  src: url("/fonts/ClashDisplay-regular.otf") format(".otf");
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --mobile-device: 964px;
+  --small-device: 1024px;
+  --medium-device: 1280px;
+  --large-device: 1728px;
+
+  --primary-100: #adfdfd;
+  --primary-200: #5bfbfb;
+  --primary-300: #09f9f9;
+  --primary-400: #04abab;
+  --primary-500: #025959;
+  --primary-600: #024747;
+  --primary-700: #013535;
+  --primary-800: #012424;
+  --primary-900: #001212;
+
+  --secondary-100: #ffdfcc;
+  --secondary-200: #ffbf99;
+  --secondary-300: #ffa066;
+  --secondary-400: #ff8033;
+  --secondary-500: #ff6000;
+  --secondary-600: #cc4d00;
+  --secondary-700: #993a00;
+  --secondary-800: #662600;
+  --secondary-900: #331300;
+
+  --tetiary-500: #e6eef0;
+
+  --neutral-0: #000000;
+  --neutral-10: #ffffff;
+
+  --neutral-100: #f7f8fa;
+  --neutral-200: #caced1;
+  --neutral-300: #909aa0;
+  --neutral-400: #5f6e78;
+  --neutral-500: #334551;
+  --neutral-600: #1f2c34;
+  --neutral-700: #06121a;
+  --neutral-800: #01080c;
+  --neutral-900: #000508;
+
+  --facebook: #4267b2;
+  --instagram: #fd1d1d;
+  --linkedin: #0077b5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--neutral-10);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-100);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-200);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--primary-500)] flex text-[var(--tetiary-500)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  .btn-secondary {
+    @apply bg-[var(--secondary-500)] flex text-[var(--neutral-10)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter;
+  }
+
+  .btn-tetiary {
+    @apply bg-[var(--neutral-500)] text-[var(--tetiary-500)] px-2 py-1 items-center justify-center font-normal text-[15px] leading-[18px] font-inter;
+  }
+  .btn-link {
+    @apply bg-transparent text-[var(--secondary-500)] uppercase text-[15px] font-extrabold leading-[18px] font-inter;
+  }
+  .active-nav {
+    @apply bg-[var(--tetiary-500)] font-extrabold;
+  }
 }

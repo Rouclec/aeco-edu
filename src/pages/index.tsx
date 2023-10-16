@@ -3,7 +3,6 @@ import { PartnerCard, TopNav } from "@/components";
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 // import { Carousel } from "react-responsive-carousel";
 import { motion } from "framer-motion";
-import Slider from "@/components/general/Slider";
 // import "react-multi-carousel/lib/styles.css";
 
 export default function Home() {

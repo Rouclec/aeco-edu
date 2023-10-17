@@ -7,7 +7,7 @@ import ServiceCard from "./ServiceCard";
 const services = [
   {
     title: "Study abroad",
-    tag: "Export our study abroad programmes",
+    tag: "Explore our study abroad programmes",
     image: "/assets/study_abrod.jpeg",
     link: "/",
   },

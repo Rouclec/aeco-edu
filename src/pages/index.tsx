@@ -1,69 +1,15 @@
 "use client";
-import { PartnerCard, TopNav } from "@/components";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
-import { motion } from "framer-motion";
-// import "react-multi-carousel/lib/styles.css";
+import {
+  PartnerCard,
+  PartnersLogo,
+  ServiceCard,
+  TopNav,
+  Services,
+  FullNews,
+  SubNews,
+} from "@/components";
 
 export default function Home() {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 6,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 4,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 2,
-    },
-  };
-
-  const partnerLogos = [
-    {
-      name: "Avila University USA",
-      image: "/assets/avila.png",
-    },
-    {
-      name: "Berlin School of Business and Innovation",
-      image: "/assets/berlin.png",
-    },
-    {
-      name: "Elmira College, USA",
-      image: "/assets/elmira.png",
-    },
-    {
-      name: "Global College Malta",
-      image: "/assets/global_college_malta.png",
-    },
-    {
-      name: "Norquest College, Canada",
-      image: "/assets/norquest.png",
-    },
-    {
-      name: "Opuvia",
-      image: "/assets/opuvia.png",
-    },
-    {
-      name: "St. Alessandro University Institute",
-      image: "/assets/sau.png",
-    },
-    {
-      name: "Texila American University",
-      image: "/assets/texila.png",
-    },
-    {
-      name: "Trebas Institute Canada",
-      image: "/assets/trebas.png",
-    },
-  ];
   return (
     <div>
       <TopNav>
@@ -94,62 +40,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="ml-10 py-4  flex items-center justify-center">
-            {/* <Slider /> */}
-            {/* <Carousel
-              // responsive={responsive}
-              autoPlay
-              infiniteLoop
-              // arrows={false}
-              // autoPlaySpeed={5000}
-            >
-              {partnerLogos.map((partner, index) => (
-                // <div
-                //   key={index}
-                //   className="flex  self-center h-full items-center justify-center"
-                // >
-                <img
-                  key={index}
-                  src={partner.image}
-                  width={96}
-                  height={"auto"}
-                  alt={partner.name}
-                  className="hover:cursor-pointer"
-                />
-                // </div>
-              ))}
-            </Carousel> */}
+          <div className="my-8">
+            <PartnersLogo />
           </div>
-          <div>
-            <motion.div className="cursor-grab">
-              <motion.div drag="x" className="w-full flex overflow-hidden">
-                {partnerLogos.splice(0, 3).map((partner, index) => {
-                  return (
-                    <motion.div key={index} className="py-1 mx-8">
-                      <div
-                        className="bg-cover bg-center w-[36vw] h-[80vh] rounded-lg"
-                        style={{ backgroundImage: `url("/assets/hero.png")` }}
-                      />
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            </motion.div>
+          <div className="my-16 mx-10">
+            <Services />
           </div>
-          <div>
-            <motion.div className="cursor-grab  ml-20">
-              <motion.div className="w-full flex">
-                {partnerLogos.map((partner, index) => {
-                  return (
-                    <motion.div key={index} className="py-1 mx-8">
-                      <img src={partner.image} alt={partner.name} width={400} />
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-            </motion.div>
-          </div>
-          <div className="mx-28">
+          <div className="mt-16  items-center justify-center flex flex-col">
             <div className="grid items-center justify-center">
               <p className="text-center text-[var(--neutral-600)] font-inter font-bold text-5xl my-2">
                 Partner Highlights
@@ -159,7 +56,44 @@ export default function Home() {
                 alliances to achieve success together.
               </p>
             </div>
-            <PartnerCard />
+            <div className="grid grid-cols-3 gap-8 my-8 m-auto">
+              <PartnerCard />
+              <PartnerCard />
+              <PartnerCard />
+            </div>
+          </div>
+          <div className="mt-12 items-center justify-center flex flex-col">
+            <div className="grid items-center justify-center">
+              <p className="text-center text-[var(--neutral-600)] font-inter font-bold text-5xl my-2">
+                NEWS
+              </p>
+              <p className="text-center text-[var(--neutral-600)] font-inter font-bold text-[16px] mb-4">
+                Breaking News: Stay Updated with the Latest Headlines
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-8 my-8 m-auto w-full px-28">
+              <div className="grid row-span-1">
+                <FullNews />
+              </div>
+              <div className="grid row-span-1 grid-cols-2 gap-4">
+                <div className="grid row-span-1  grid-rows-2 gap-2">
+                  <div className="col-span-1 ">
+                    <SubNews />
+                  </div>
+                  <div className="col-span-1 ">
+                    <SubNews />
+                  </div>
+                </div>
+                <div className="grid row-span-1  grid-rows-2 gap-2">
+                  <div className="col-span-1 ">
+                    <SubNews />
+                  </div>
+                  <div className="col-span-1 ">
+                    <SubNews />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </TopNav>

@@ -20,10 +20,74 @@ type Props = {
   children?: any;
 };
 
+const navItems = [
+  {
+    name: "Home",
+    subs: [],
+  },
+  {
+    name: "Student placement",
+    subs: [
+      {
+        name: "Study abroad",
+        link: "/",
+      },
+      {
+        name: "Local studies",
+        link: "/",
+      },
+      {
+        name: "Online studies",
+        link: "/",
+      },
+    ],
+  },
+  {
+    name: "Pathways",
+    subs: [
+      {
+        name: "International year programme",
+        link: "/",
+      },
+    ],
+  },
+  {
+    name: "Language education",
+    subs: [
+      {
+        name: "Language exam prep.",
+        link: "/",
+      },
+      {
+        name: "Language studies",
+        link: "/",
+      },
+    ],
+  },
+  {
+    name: "Education services",
+    subs: [
+      {
+        name: "Integrated school platform",
+        link: "/",
+      },
+      {
+        name: "Partnership development",
+        link: "/",
+      },
+      {
+        name: "Student recruitment",
+        link: "/",
+      },
+    ],
+  },
+];
+
 const TopNav: FC<Props> = ({ children }) => {
   const router = useRouter();
   const [active, setActive] = useState("/");
   const [cursorIn, setCursorIn] = useState(-1);
+  const [hoveredNav, setHoveredNav] = useState("");
   const path = router.pathname;
   return (
     <div>
@@ -53,54 +117,45 @@ const TopNav: FC<Props> = ({ children }) => {
       <div className="fixed top-24 right-0 left-0 h-12 bg-[var(--neutral-10)] px-14 z-[99999]">
         <div className="flex w-full h-full items-center justify-between">
           <div className="flex items-center">
-            <div
-              className={`flex py-3 px-4 items-center gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
-                active === "/" && "active-nav"
-              }`}
-            >
-              <p className="uppercase font-inter text-[16px] text-[var(--neutral-600)]">
-                Home
-              </p>
-            </div>
-            <div
-              className={`flex py-3 px-4 items-center gap-2 justify-center hover:cursor-pointer hover:active-nav`}
-            >
-              <p className="font-inter uppercase font-[500] text-[16px] text-[var(--neutral-600)]">
-                Student placement
-              </p>
-              <HiOutlineChevronDown className="" />
-            </div>
-            <div
-              className={`flex py-3 px-4 items-center gap-2 justify-center hover:cursor-pointer hover:active-nav`}
-            >
-              <p className="font-inter uppercase font-[500] text-[16px] text-[var(--neutral-600)]">
-                Pathways
-              </p>
-              <HiOutlineChevronDown className="" />
-            </div>
-            <div
-              className={`flex py-3 px-4 items-center gap-2 justify-center hover:cursor-pointer hover:active-nav`}
-            >
-              <p className="font-inter uppercase font-[500] text-[16px] text-[var(--neutral-600)]">
-                Language education
-              </p>
-              <HiOutlineChevronDown className="" />
-            </div>
-            <div
-              className={`flex py-3 px-4 items-center gap-2 justify-center hover:cursor-pointer hover:active-nav`}
-            >
-              <p className="font-inter uppercase font-[500] text-[16px] text-[var(--neutral-600)]">
-                Education services
-              </p>
-              <HiOutlineChevronDown className="" />
-            </div>
+            {navItems.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`relative flex py-3 px-4 items-center gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
+                    item.name.toLowerCase() === "home"
+                      ? "active-nav"
+                      : "[&>*]:font-[500]"
+                  }`}
+                  onMouseEnter={() => setHoveredNav(item.name)}
+                  onMouseLeave={() => setHoveredNav("")}
+                >
+                  <p className="font-inter uppercase text-[16px] text-[var(--neutral-600)]">
+                    {item.name}
+                  </p>
+                  {item.subs.length > 0 && (
+                    <HiOutlineChevronDown className="" />
+                  )}
+                  {hoveredNav === item.name && item.subs.length > 0 && (
+                    <div className="absolute top-12 bg-[#fffffff6] w-full p-4 rounded-sm transition-transform duration-500">
+                      {item.subs.map((sub, index) => (
+                        <Link href={sub.link} key={index}>
+                          <p className="text-sm font-inter w-fit font-light transition-all duration-500 py-2 hover:font-semibold">
+                            {sub.name}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
       <main className="mt-32 mb-24">{children}</main>
       <div className="bottom-0 right-0 left-0 bg-[var(--tetiary-500)] px-14 py-12 z-[99999]">
-        <div className="w-full h-full grid grid-cols-4">
-          <div className="col-span-2 items-center justify-center gap-4">
+        <div className="w-full h-full gap-2">
+          <div className=" items-center justify-center gap-4">
             <Link href={"/"}>
               <Image
                 src={"/assets/brand_logo.png"}
@@ -109,7 +164,9 @@ const TopNav: FC<Props> = ({ children }) => {
                 alt="brand"
               />
             </Link>
-            <div className="grid gap-2 mt-8 [&>*]:hover:cursor-pointer">
+          </div>
+          <div className="grid grid-cols-6 gap-x-8">
+            <div className="grid gap-2 col-span-2 mt-8 [&>*]:hover:cursor-pointer">
               <a
                 className="relative flex gap-3 w-fit"
                 href="tel:+237650663001"
@@ -173,31 +230,46 @@ const TopNav: FC<Props> = ({ children }) => {
                 </p>
               </a>
             </div>
+            {navItems
+              .filter((item) => item.name.toLowerCase() !== "home")
+              .map((item, index) => {
+                return (
+                  <div
+                    className="col-span-1 [&>*]:hover:cursor-pointer"
+                    key={index}
+                  >
+                    <p className="mb-4 text-[var(--neutral-700)] text-sm font-inter font-semibold">
+                      {item.name.toUpperCase()}
+                    </p>
+                    <div className="grid gap-4">
+                      {item.subs.map((sub, index) => {
+                        return (
+                          <a className="flex gap-3" key={index}>
+                            <Link href={sub.link}>
+                              <p>{sub.name}</p>
+                            </Link>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
-          <div className="col-span-1 [&>*]:hover:cursor-pointer">
-            <p className="mb-4 text-[var(--neutral-700)] text-2xl font-inter font-bold">
-              Contact
-            </p>
-          </div>
-          <div className="col-span-1 [&>*]:hover:cursor-pointer">
-            <p className="mb-4 text-[var(--neutral-700)] text-2xl font-inter font-bold">
-              Legal
-            </p>
-            <div className="grid gap-2">
-              <a className="flex gap-3">
-                <p>Privacy policy</p>
-              </a>
-              <a className="flex gap-3">
-                <p>Cookie Policy</p>
-              </a>
-              <a className="flex gap-3">
-                <p>Contact us</p>
-              </a>
-              <a className="flex gap-3">
-                <p>Opportunities</p>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div className="flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
+          <a className="flex gap-3">
+            <p>Privacy policy</p>
+          </a>
+          <a className="flex gap-3">
+            <p>Cookie Policy</p>
+          </a>
+          <a className="flex gap-3">
+            <p>Contact us</p>
+          </a>
+          <a className="flex gap-3">
+            <p>Opportunities</p>
+          </a>
         </div>
       </div>
     </div>

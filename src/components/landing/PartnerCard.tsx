@@ -1,10 +1,17 @@
+import Image from "next/image";
 import React, { FC } from "react";
 
 const PartnerCard: FC = () => {
   return (
     <div className="grid shadow-lg border-[1px] hover:border-[var(--secondary-400)] hover:cursor-pointer transition-transform duration-500">
-      <div className="flex border-b-2 p-4">
-        <button className="btn-tetiary">first button</button>
+      <div className="flex border-b-2 p-4 gap-2 items-center w-[50%]">
+        <Image
+          src="/assets/berlin_school.jpeg"
+          width={42}
+          height={48}
+          alt="logo"
+        />
+        <p className="font-inter uppercase text-sm">Partner name</p>
       </div>
       <img src="/assets/hero.png" height={480} width={560} />
       <div className="grid p-4 px-6">

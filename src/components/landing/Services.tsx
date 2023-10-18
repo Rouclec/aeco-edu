@@ -31,10 +31,9 @@ const Services: FC = () => {
     // centerMode: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // arrows: true,
   };
   return (
-    <div>
+    <div className="">
       <Slider {...settings}>
         {services.map((service, index) => {
           return (

@@ -23,6 +23,7 @@ type Props = {
 const TopNav: FC<Props> = ({ children }) => {
   const router = useRouter();
   const [active, setActive] = useState("/");
+  const [cursorIn, setCursorIn] = useState(-1);
   const path = router.pathname;
   return (
     <div>
@@ -108,25 +109,68 @@ const TopNav: FC<Props> = ({ children }) => {
                 alt="brand"
               />
             </Link>
-            <div className="grid gap-2 mt-8 [&>*]:hover:cursor-pointer hover:[&>p&>span]:scale-x-10">
-              <a className="relative flex gap-3" href="tel:+237650663001">
+            <div className="grid gap-2 mt-8 [&>*]:hover:cursor-pointer">
+              <a
+                className="relative flex gap-3 w-fit"
+                href="tel:+237650663001"
+                onMouseEnter={() => setCursorIn(0)}
+                onMouseLeave={() => setCursorIn(-1)}
+              >
                 <HiOutlinePhone size={24} />
                 <p className="relative">
                   (+237) 650 663 001{" "}
-                  <span className={`absolute -bottom-0 left-[2px] w-[90%] h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-300 origin-left`} />
+                  <span
+                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                      cursorIn === 0 ? "scale-x-10" : "scale-x-0"
+                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                  />
                 </p>
               </a>
-              <a className="flex gap-3" href="mailto:info@aecoedu.com">
+              <a
+                className="flex gap-3 w-fit"
+                href="mailto:info@aecoedu.com"
+                onMouseEnter={() => setCursorIn(1)}
+                onMouseLeave={() => setCursorIn(-1)}
+              >
                 <HiOutlineEnvelope size={24} />
-                <p>info@aecoedu.com</p>
+                <p className="relative">
+                  info@aecoedu.com
+                  <span
+                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                      cursorIn === 1 ? "scale-x-10" : "scale-x-0"
+                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                  />
+                </p>
               </a>
-              <a className="flex gap-3">
+              <a
+                className="flex gap-3 w-fit"
+                onMouseEnter={() => setCursorIn(2)}
+                onMouseLeave={() => setCursorIn(-1)}
+              >
                 <VscLocation size={24} />
-                <p>No. 237 Rue Dibombé</p>
+                <p className="relative">
+                  No. 237 Rue Dibombé{" "}
+                  <span
+                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                      cursorIn === 2 ? "scale-x-10" : "scale-x-0"
+                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                  />
+                </p>
               </a>
-              <a className="flex gap-3">
+              <a
+                className="flex gap-3 w-fit"
+                onMouseEnter={() => setCursorIn(3)}
+                onMouseLeave={() => setCursorIn(-1)}
+              >
                 <HiOutlineGlobeEuropeAfrica size={24} />
-                <p>Douala, Cameroon</p>
+                <p className="relative">
+                  Douala, Cameroon{" "}
+                  <span
+                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                      cursorIn === 3 ? "scale-x-10" : "scale-x-0"
+                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                  />
+                </p>
               </a>
             </div>
           </div>

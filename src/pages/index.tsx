@@ -17,10 +17,6 @@ import Iframe from "react-iframe";
 export default function Home() {
   const containerRef = useRef(null) as any;
 
-  function moveScript() {
-    containerRef.current.appendChild(this);
-  }
-
   return (
     <>
       <Head>

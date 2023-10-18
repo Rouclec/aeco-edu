@@ -95,7 +95,7 @@ const TopNav: FC<Props> = ({ children }) => {
         <div className="h-full w-full flex items-center justify-between">
           <div>
             <Image
-              src={"/assets/logo2.png"}
+              src={"/assets/logo.png"}
               alt={"Logo"}
               width={120}
               height={64}

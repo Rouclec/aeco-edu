@@ -28,8 +28,8 @@ const Services: FC = () => {
   const settings = {
     dots: true,
     infinite: true,
-    centerMode: true,
-    slidesToShow: 2,
+    // centerMode: true,
+    slidesToShow: 3,
     slidesToScroll: 1,
     // arrows: true,
   };

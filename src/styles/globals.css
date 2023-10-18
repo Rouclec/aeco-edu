@@ -75,15 +75,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-[var(--primary-500)] flex text-[var(--tetiary-500)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter;
+    @apply bg-[var(--primary-500)] flex text-[var(--tetiary-500)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter hover:bg-[var(--primary-800)] transition-transform duration-500 hover:scale-90;
   }
 
   .btn-secondary {
-    @apply bg-[var(--secondary-500)] flex text-[var(--neutral-10)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter;
+    @apply bg-[var(--secondary-500)] flex text-[var(--neutral-10)] px-8 py-4 items-center justify-center font-extrabold text-[15px] leading-[18px] uppercase font-inter hover:bg-[var(--secondary-800)] transition-transform duration-500 hover:scale-90;
   }
 
   .btn-tetiary {
-    @apply bg-[var(--neutral-500)] text-[var(--tetiary-500)] px-2 py-1 items-center justify-center font-normal text-[15px] leading-[18px] font-inter;
+    @apply bg-[var(--neutral-500)] text-[var(--tetiary-500)] px-2 py-1 items-center justify-center font-normal text-[15px] leading-[18px] font-inter hover:bg-[var(--neutral-700)] transition-transform duration-500 hover:scale-90;
   }
   .btn-link {
     @apply bg-transparent text-[var(--secondary-500)] uppercase text-[15px] font-extrabold leading-[18px] font-inter;

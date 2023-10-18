@@ -25,7 +25,7 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
   };
   return (
     <div
-      className="relative w-[36vw] h-[440px] shadow-sm overflow-hidden "
+      className="relative w-[30vw] h-[440px] shadow-sm overflow-hidden "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -39,12 +39,12 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
           } right-0 left-0`}
         >
           {!top && (
-            <span className="w-0 h-0 border-b-[24px] border-b-[#ff62003f] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
+            <span className="w-0 h-0 border-b-[24px] border-b-[#45220c63] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
           )}
           <div
             className={`relative w-full grid items-center justify-center ${
               isHovered ? "h-48" : "h-24"
-            } bg-[#ff62003f] duration-500 ease-out p-6`}
+            } bg-[#45220c63] duration-500 ease-out p-6`}
           >
             {top && (
               <div
@@ -56,12 +56,12 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                   href={service.link}
                   className="flex gap-2 items-center justify-center w-full"
                 >
-                  <p className=" text-center text-[var(--neutral-10)] font-bold font-inter text-xl">
+                  <p className=" text-center text-[var(--secondary-500)] font-bold font-inter text-xl">
                     Discover more
                   </p>
                   <AiOutlineArrowRight
                     size={24}
-                    className="text-center text-[var(--neutral-10)] font-bold font-inter text-xl"
+                    className="text-center text-[var(--secondary-500)] font-bold font-inter text-xl"
                   />
                 </Link>
                 <p
@@ -97,19 +97,19 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                   href={service.link}
                   className="flex gap-2 items-center justify-center w-full"
                 >
-                  <p className=" text-center text-[var(--neutral-10)] font-bold font-inter text-xl">
+                  <p className=" text-center text-[var(--secondary-500)] font-bold font-inter text-xl">
                     Discover more
                   </p>
                   <AiOutlineArrowRight
                     size={24}
-                    className="text-center text-[var(--neutral-10)] font-bold font-inter text-xl"
+                    className="text-center text-[var(--secondary-500)] font-bold font-inter text-xl"
                   />
                 </Link>
               </div>
             )}
           </div>
           {top && (
-            <span className="w-0 h-0 border-t-[24px] border-t-[#ff62003f] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
+            <span className="w-0 h-0 border-t-[24px] border-t-[#45220c63] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
           )}
         </div>
       </div>

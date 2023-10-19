@@ -314,7 +314,7 @@ const TopNav: FC<Props> = ({ children }) => {
               />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-x-28 gap-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-x-2 md:gap-x-10 lg:gap-x-28 gap-y-10">
             <div className="grid gap-2 col-span-2 mt-8 [&>*]:hover:cursor-pointer">
               <a
                 className="relative flex gap-3 w-fit"

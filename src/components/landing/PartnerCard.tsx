@@ -3,13 +3,14 @@ import React, { FC } from "react";
 
 const PartnerCard: FC = () => {
   return (
-    <div className="grid shadow-lg border-[1px] hover:border-[var(--secondary-400)] hover:cursor-pointer transition-transform duration-500">
+    <div className="grid self-center shadow-lg border-[1px] hover:border-[var(--secondary-400)] hover:cursor-pointer transition-transform duration-500">
       <div className="flex border-b-2 p-4 gap-2 items-center w-[50%]">
         <Image
           src="/assets/berlin_school.jpeg"
           width={42}
           height={48}
           alt="logo"
+          className="w-full"
         />
         <p className="font-inter uppercase text-sm">Partner name</p>
       </div>
@@ -24,7 +25,7 @@ const PartnerCard: FC = () => {
           temporibus! Iure animi debitis, aspernatur odit atque nemo
           perspiciatis blanditiis. Perferendis iure a culpa.
         </p>
-        <button className="btn-primary w-[80%] mt-8 mb-2">Learn more</button>
+        <button className="btn-primary w-[80%] text-[12px] lg:text-[15px] p-4  mt-8 mb-2">Learn more</button>
       </div>
     </div>
   );

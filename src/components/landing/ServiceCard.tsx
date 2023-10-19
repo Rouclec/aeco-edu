@@ -25,7 +25,8 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
   };
   return (
     <div
-      className="relative w-[30vw] h-[440px] shadow-sm overflow-hidden "
+      // className="relative w-[80vw] md:w-[45vw] lg:w-[30vw] h-[440px] shadow-sm overflow-hidden "
+      className="relative mx-2 h-[440px] shadow-sm overflow-hidden "
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -65,14 +66,14 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                   />
                 </Link>
                 <p
-                  className={`text-center text-[var(--neutral-10)] font-inter text-lg`}
+                  className={`text-center text-[var(--neutral-10)] font-inter text-sm px-4 lg:text-lg`}
                 >
                   {service.tag}
                 </p>
               </div>
             )}
             <p
-              className={`uppercase text-center text-[var(--neutral-10)] font-inter font-extrabold text-2xl ${
+              className={`uppercase truncate text-center text-[var(--neutral-10)] font-inter font-extrabold text-lg lg:text-2xl ${
                 isHovered
                   ? top
                     ? "translate-y-10"
@@ -89,7 +90,7 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                 }`}
               >
                 <p
-                  className={`text-center text-[var(--neutral-10)] font-inter text-lg`}
+                  className={`text-center text-[var(--neutral-10)] font-inter text-sm px-4 lg:text-lg`}
                 >
                   {service.tag}
                 </p>

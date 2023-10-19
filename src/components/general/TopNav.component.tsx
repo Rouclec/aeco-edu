@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import {
   AiOutlineFacebook,
   AiOutlineInstagram,
   AiOutlineLinkedin,
+  AiOutlineMenu,
 } from "react-icons/ai";
 import { VscLocation } from "react-icons/vsc";
 import {
@@ -87,25 +88,62 @@ const navItems = [
   },
 ];
 
+const others = [
+  {
+    name: "User Portal",
+    link: "https://aeco.ams4you.net/amslogin.html",
+    new: "tab",
+  },
+  {
+    name: "Apply Now",
+    link: "/apply",
+  },
+];
+
 const TopNav: FC<Props> = ({ children }) => {
   const router = useRouter();
   const [active, setActive] = useState("/");
   const [cursorIn, setCursorIn] = useState(-1);
   const [hoveredNav, setHoveredNav] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const path = router.pathname;
+
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
-      <div className="fixed top-0 right-0 left-0 h-24 bg-[var(--tetiary-500)] px-14 z-[99999]">
-        <div className="h-full w-full flex items-center justify-between">
+      <div className="fixed top-0 right-0 left-0 h-24 bg-[var(--tetiary-500)] px-4 md:px-8 lg:px-14 z-[99999]">
+        <div className="h-full w-full flex relative items-center justify-between">
           <div>
             <Image
               src={"/assets/logo.png"}
               alt={"Logo"}
               width={120}
               height={64}
+              className="w-24 md:w-32"
             />
           </div>
-          <div className="flex gap-8 items-center">
+          <div className="gap-8 items-center hidden md:flex">
             <div className="flex gap-3">
               <AiOutlineFacebook className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--facebook)] transition-transform duration-500 hover:scale-110 relative" />
               <AiOutlineInstagram className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--instagram)] transition-transform duration-500 hover:scale-110 relative" />
@@ -124,16 +162,108 @@ const TopNav: FC<Props> = ({ children }) => {
               </Link>
             </div>
           </div>
+          <div
+            className="flex md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            ref={buttonRef}
+          >
+            <AiOutlineMenu className="text-3xl hover:cursor-pointer" />
+          </div>
         </div>
+        {menuOpen && (
+          <div
+            className="md:hidden absolute left-0 right-0 w-full bg-[var(--neutral-100)] py-4"
+            ref={menuRef}
+          >
+            {navItems.map((item, index) => {
+              return (
+                <div
+                  className="mb-4 border-b border-[var(--neutral-300)]"
+                  key={index}
+                >
+                  <div
+                    className="flex gap-2 mb-2 items-center px-4 hover:cursor-pointer"
+                    onClick={() =>
+                      active === item.name
+                        ? setActive("/")
+                        : setActive(item.name)
+                    }
+                  >
+                    <p
+                      className={`${
+                        active === item.name &&
+                        "text-[var(--primary-500)] font-[500]"
+                      }`}
+                    >
+                      {item.name}
+                    </p>
+                    {item.subs.length > 0 && (
+                      <HiOutlineChevronDown
+                        className={`${
+                          active === item.name &&
+                          "text-[var(--primary-500)] font-[500]"
+                        }`}
+                      />
+                    )}
+                  </div>
+                  {active === item.name && item.subs.length > 0 && (
+                    <div className="mt-3 bg-gray-200 border-t border-[var(--neutral-300)]">
+                      {item.subs.map((sub, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className=" border-b-[1px] p-4 border-[var(--neutral-200)]"
+                          >
+                            <Link href={sub.link} className="pb-4">
+                              {sub.name}
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            {others.map((item, index) => {
+              return (
+                <div
+                  className="mb-4 border-b border-[var(--neutral-300)]"
+                  key={index}
+                >
+                  <div
+                    className="flex gap-2 mb-2 items-center px-4 hover:cursor-pointer"
+                    onClick={() =>
+                      active === item.name
+                        ? setActive("/")
+                        : setActive(item.name)
+                    }
+                  >
+                    <Link
+                      href={item.link}
+                      target={item.new === "tab" ? "_blank" : "_parent"}
+                      className={`${
+                        active === item.name &&
+                        "text-[var(--primary-500)] font-[500]"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
-      <div className="fixed top-24 right-0 left-0 h-12 bg-[var(--neutral-10)] px-14 z-[99999]">
+      <div className="hidden md:block  fixed top-24 right-0 left-0 h-12 bg-[var(--neutral-10)] px-8 lg:px-14 z-[99999]">
         <div className="flex w-full h-full items-center justify-between">
           <div className="flex items-center">
             {navItems.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className={`relative flex py-3 px-4 items-center gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
+                  className={`relative flex py-4 lg:py-3 px-4  items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
                     item.name.toLowerCase() === "home"
                       ? "active-nav"
                       : "[&>*]:font-[500]"
@@ -141,7 +271,7 @@ const TopNav: FC<Props> = ({ children }) => {
                   onMouseEnter={() => setHoveredNav(item.name)}
                   onMouseLeave={() => setHoveredNav("")}
                 >
-                  <p className="font-inter uppercase text-[16px] text-[var(--neutral-600)]">
+                  <p className="font-inter uppercase truncate text-[12px] lg:text-[16px] text-[var(--neutral-600)]">
                     {item.name}
                   </p>
                   {item.subs.length > 0 && (
@@ -149,16 +279,16 @@ const TopNav: FC<Props> = ({ children }) => {
                   )}
                   {hoveredNav === item.name && item.subs.length > 0 && (
                     <div
-                      className={`absolute top-12 bg-[#fffffff6] left-0 min-w-full ${
+                      className={`absolute top-12 bg-[#fffffff6] -left-4 lg:left-0 min-w-full ${
                         item.name.toLowerCase() === "pathways" ||
                         item.name.toLowerCase() === "education services"
-                          ? "w-[20vw]"
+                          ? "w-[28vw] lg:w-[20vw]"
                           : "w-full"
                       } p-4 rounded-sm transition-transform duration-500`}
                     >
                       {item.subs.map((sub, index) => (
                         <Link href={sub.link} key={index}>
-                          <p className="text-sm font-inter w-fit font-light transition-all duration-500 py-2 hover:font-semibold">
+                          <p className="text-sm font-inter truncate w-fit font-light transition-all duration-500 py-2 hover:font-semibold">
                             {sub.name}
                           </p>
                         </Link>
@@ -171,7 +301,7 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      <main className="mt-32">{children}</main>
+      <main className="mt-24 md:mt-32">{children}</main>
       <div className="bottom-0 right-0 left-0 bg-[var(--tetiary-500)] px-14 py-12 z-[99999]">
         <div className="w-full h-full gap-2">
           <div className=" items-center justify-center gap-4">
@@ -184,7 +314,7 @@ const TopNav: FC<Props> = ({ children }) => {
               />
             </Link>
           </div>
-          <div className="grid grid-cols-7 gap-x-28">
+          <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-x-28 gap-y-10">
             <div className="grid gap-2 col-span-2 mt-8 [&>*]:hover:cursor-pointer">
               <a
                 className="relative flex gap-3 w-fit"
@@ -249,7 +379,7 @@ const TopNav: FC<Props> = ({ children }) => {
                 </p>
               </a>
             </div>
-            <div className="grid col-span-5 grid-cols-3">
+            <div className="grid col-span-1 md:col-span-5  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10">
               {navItems
                 .filter(
                   (item) =>
@@ -298,7 +428,7 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         </div>
         <hr className="mt-8 border-t-2" />
-        <div className="flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
+        <div className="grid grid-cols-1 gap-y-4 md:flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
           <a className="flex gap-3">
             <p>Privacy policy</p>
           </a>

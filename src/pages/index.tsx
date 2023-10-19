@@ -12,7 +12,6 @@ import Head from "next/head";
 import { useRef } from "react";
 
 export default function Home() {
-
   return (
     <>
       <Head>
@@ -24,14 +23,14 @@ export default function Home() {
       <main>
         <div>
           <TopNav>
-            <div className="pb-32">
-              <div
+            <div className="pb-32 overflow-x-hidden">
+            <div
                 className="bg-cover bg-center w-full h-[80vh] overflow-hidden"
                 style={{ backgroundImage: `url("/assets/hero.png")` }}
               >
-                <div className="w-full h-full grid grid-cols-1 md:grid-cols-3 items-center justify-center px-40">
-                  <div className="grid w-[80%] bg-[#000508c1] p-8 col-span-1 md:col-span-2 gap-1">
-                    <p className="text-center pb-6 text-[var(--neutral-10)] font-inter font-bold text-4xl leading-10">
+                <div className="w-full h-full  grid md:grid-cols-3 items-center justify-center px-10 md:px-20 lg:px-40">
+                  <div className="grid w-full lg:w-[80%] bg-[#000508c1] p-8 col-span-2 gap-1">
+                    <p className="text-center pb-6 text-[var(--neutral-10)] font-inter font-bold text-xl lg:text-4xl lg:leading-10">
                       Your Journey Starts Here!
                     </p>
                     <p className="text-center text-[var(--tetiary-500)] font-inter font-light text-[16px] leeading-[24px]">
@@ -67,8 +66,8 @@ export default function Home() {
                 <Services />
               </div>
               <div className="mt-16  items-center justify-center flex flex-col">
-                <div className="grid items-center justify-center">
-                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-5xl my-2">
+                <div className="grid items-center justify-center px-10">
+                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
                     Partner Highlights
                   </p>
                   <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
@@ -76,7 +75,7 @@ export default function Home() {
                     alliances to achieve success together.
                   </p>
                 </div>
-                <div className="grid grid-cols-4 gap-8 my-8 mt-12 mx-10">
+                <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-8 my-8 w-[100vw] px-10 mt-12">
                   <PartnerCard />
                   <PartnerCard />
                   <PartnerCard />
@@ -84,15 +83,15 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-12 items-center justify-center flex flex-col">
-                <div className="grid items-center justify-center">
-                  <p className="text-center my-4 text-[var(--neutral-600)] font-inter font-bold text-5xl mt-16 uppercase">
+              <div className="grid items-center justify-center px-10">
+                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
                     NEWS
                   </p>
                   <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
                     Breaking News: Stay Updated with the Latest Headlines
                   </p>
                 </div>
-                <div className="grid grid-cols-2 gap-8 mt-12 px-10 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-10 w-full">
                   <div className="grid row-span-1">
                     <FullNews />
                   </div>
@@ -117,8 +116,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-12 items-center justify-center flex flex-col mx-10">
-                <div className="grid items-center justify-center">
-                  <p className="text-center my-4 text-[var(--neutral-600)] font-inter font-bold text-5xl mt-16 uppercase">
+              <div className="grid items-center justify-center px-10">
+                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
                     Testimonials
                   </p>
                   <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">

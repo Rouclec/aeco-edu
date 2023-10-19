@@ -24,20 +24,39 @@ const services = [
     link: "/",
   },
 ];
+const settings = {
+  dots: true,
+  infinite: true,
+  // centerMode: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        // dots: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
 const Services: FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    // centerMode: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
   return (
     <div className="">
       <Slider {...settings}>
         {services.map((service, index) => {
           return (
-            <div className="w-[32vw]" key={index}>
+            <div className="w-[40vw]" key={index}>
               <ServiceCard service={service} top={!!((index + 1) % 2 === 0)} />
             </div>
           );

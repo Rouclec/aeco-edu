@@ -13,7 +13,7 @@ const PartnerCard: FC = () => {
         />
         <p className="font-inter uppercase text-sm">Partner name</p>
       </div>
-      <img src="/assets/hero.png" height={480} width={560} />
+      <Image src="/assets/hero.png" height={480} width={560} alt="cover" />
       <div className="grid p-4 px-6">
         <p className="py-2 font-inter font-bold text-xl text-[var(--neutral-600)">
           Lorem ipsum dolor sit amet consectetur

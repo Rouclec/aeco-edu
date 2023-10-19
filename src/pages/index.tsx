@@ -2,20 +2,16 @@
 import {
   PartnerCard,
   PartnersLogo,
-  ServiceCard,
   TopNav,
   Services,
   FullNews,
   SubNews,
+  Testimonials,
 } from "@/components";
 import Head from "next/head";
-import Script from "next/script";
 import { useRef } from "react";
 
-import Iframe from "react-iframe";
-
 export default function Home() {
-  const containerRef = useRef(null) as any;
 
   return (
     <>
@@ -28,7 +24,7 @@ export default function Home() {
       <main>
         <div>
           <TopNav>
-            <div className="pb-8">
+            <div className="pb-32">
               <div
                 className="bg-cover bg-center w-full h-[80vh] overflow-hidden"
                 style={{ backgroundImage: `url("/assets/hero.png")` }}
@@ -45,19 +41,13 @@ export default function Home() {
                       and Abroad Universities.
                     </p>
                   </div>
-                  <div className="col-span-1">
-                    {/* <script
-                  src="https://aeco.ams4you.net/webinqcode-13059-1100.html"
-                  async
-                /> */}
+                  {/* <div className="col-span-1">
                     <div
                       ref={containerRef}
                       id="script-container"
                       className="mr-10"
                     >
                       <Iframe
-                        // url="https://aeco.ams4you.net/webinqcode-13059-1100.html"
-                        // url="https://test.ams4you.net/webinqcode-12356-1089.html"
                         url="https://ams4you.net/panel/webinq.php?ag=13059&wfid=1100&url='+location.href.replace('&', '[P]')+'&ptit='+document.title+'"
                         width="400px"
                         height="320px"
@@ -67,7 +57,7 @@ export default function Home() {
                         position="relative"
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="my-16">
@@ -95,7 +85,7 @@ export default function Home() {
               </div>
               <div className="mt-12 items-center justify-center flex flex-col">
                 <div className="grid items-center justify-center">
-                  <p className="text-center my-4 text-[var(--neutral-600)] font-inter font-bold text-5xl mt-16">
+                  <p className="text-center my-4 text-[var(--neutral-600)] font-inter font-bold text-5xl mt-16 uppercase">
                     NEWS
                   </p>
                   <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
@@ -124,6 +114,19 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className="mt-12 items-center justify-center flex flex-col mx-10">
+                <div className="grid items-center justify-center">
+                  <p className="text-center my-4 text-[var(--neutral-600)] font-inter font-bold text-5xl mt-16 uppercase">
+                    Testimonials
+                  </p>
+                  <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
+                    Breaking News: Stay Updated with the Latest Headlines
+                  </p>
+                </div>
+                <div className="mt-8">
+                  <Testimonials />
                 </div>
               </div>
             </div>

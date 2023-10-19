@@ -26,18 +26,18 @@ const navItems = [
     subs: [],
   },
   {
-    name: "Student placement",
+    name: "Student Placement",
     subs: [
       {
-        name: "Study abroad",
+        name: "Study Abroad",
         link: "/",
       },
       {
-        name: "Local studies",
+        name: "Local Placement",
         link: "/",
       },
       {
-        name: "Online studies",
+        name: "Online Studies",
         link: "/",
       },
     ],
@@ -46,7 +46,11 @@ const navItems = [
     name: "Pathways",
     subs: [
       {
-        name: "International year programme",
+        name: "International Year Programme",
+        link: "/",
+      },
+      {
+        name: "On Campus",
         link: "/",
       },
     ],
@@ -55,11 +59,11 @@ const navItems = [
     name: "Language education",
     subs: [
       {
-        name: "Language exam prep.",
+        name: "Exam Preparations",
         link: "/",
       },
       {
-        name: "Language studies",
+        name: "Language Trainings",
         link: "/",
       },
     ],
@@ -68,13 +72,13 @@ const navItems = [
     name: "Education services",
     subs: [
       {
-        name: "Integrated school platform",
+        name: "School Management Systems",
         link: "/",
       },
-      {
-        name: "Partnership development",
-        link: "/",
-      },
+      // {
+      //   name: "Partnership development",
+      //   link: "/",
+      // },
       {
         name: "Student recruitment",
         link: "/",
@@ -108,8 +112,16 @@ const TopNav: FC<Props> = ({ children }) => {
               <AiOutlineLinkedin className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--linkedin)] transition-transform duration-500 hover:scale-110 relative" />
             </div>
             <div className="flex gap-2">
-              <button className="btn-primary">User Portal</button>
-              <button className="btn-secondary">Apply</button>
+              <Link
+                href={"https://aeco.ams4you.net/amslogin.html"}
+                target="_blank"
+                className="btn-primary"
+              >
+                User Portal
+              </Link>
+              <Link className="btn-secondary" href={"/apply"}>
+                Apply
+              </Link>
             </div>
           </div>
         </div>
@@ -125,7 +137,7 @@ const TopNav: FC<Props> = ({ children }) => {
                     item.name.toLowerCase() === "home"
                       ? "active-nav"
                       : "[&>*]:font-[500]"
-                  }`}
+                  } overflow-visible`}
                   onMouseEnter={() => setHoveredNav(item.name)}
                   onMouseLeave={() => setHoveredNav("")}
                 >
@@ -136,7 +148,14 @@ const TopNav: FC<Props> = ({ children }) => {
                     <HiOutlineChevronDown className="" />
                   )}
                   {hoveredNav === item.name && item.subs.length > 0 && (
-                    <div className="absolute top-12 bg-[#fffffff6] w-full p-4 rounded-sm transition-transform duration-500">
+                    <div
+                      className={`absolute top-12 bg-[#fffffff6] left-0 min-w-full ${
+                        item.name.toLowerCase() === "pathways" ||
+                        item.name.toLowerCase() === "education services"
+                          ? "w-[20vw]"
+                          : "w-full"
+                      } p-4 rounded-sm transition-transform duration-500`}
+                    >
                       {item.subs.map((sub, index) => (
                         <Link href={sub.link} key={index}>
                           <p className="text-sm font-inter w-fit font-light transition-all duration-500 py-2 hover:font-semibold">
@@ -152,7 +171,7 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      <main className="mt-32 mb-24">{children}</main>
+      <main className="mt-32">{children}</main>
       <div className="bottom-0 right-0 left-0 bg-[var(--tetiary-500)] px-14 py-12 z-[99999]">
         <div className="w-full h-full gap-2">
           <div className=" items-center justify-center gap-4">
@@ -165,7 +184,7 @@ const TopNav: FC<Props> = ({ children }) => {
               />
             </Link>
           </div>
-          <div className="grid grid-cols-6 gap-x-8">
+          <div className="grid grid-cols-7 gap-x-28">
             <div className="grid gap-2 col-span-2 mt-8 [&>*]:hover:cursor-pointer">
               <a
                 className="relative flex gap-3 w-fit"
@@ -230,33 +249,55 @@ const TopNav: FC<Props> = ({ children }) => {
                 </p>
               </a>
             </div>
-            {navItems
-              .filter((item) => item.name.toLowerCase() !== "home")
-              .map((item, index) => {
-                return (
-                  <div
-                    className="col-span-1 [&>*]:hover:cursor-pointer"
-                    key={index}
-                  >
-                    <p className="mb-4 text-[var(--neutral-700)] text-sm font-inter font-semibold">
-                      {item.name.toUpperCase()}
-                    </p>
-                    <div className="grid gap-4">
-                      {item.subs.map((sub, index) => {
-                        return (
-                          <a className="flex gap-3" key={index}>
-                            <Link href={sub.link}>
-                              <p>{sub.name}</p>
-                            </Link>
-                          </a>
-                        );
-                      })}
+            <div className="grid col-span-5 grid-cols-3">
+              {navItems
+                .filter(
+                  (item) =>
+                    item.name.toLowerCase() !== "home" &&
+                    item.name.toLocaleLowerCase() !== "pathways"
+                )
+                .map((item, index) => {
+                  const unique = 4 * (index + 1);
+                  return (
+                    <div
+                      className="col-span-1 [&>*]:hover:cursor-pointer"
+                      key={index}
+                    >
+                      <p className="mb-8 text-[var(--neutral-700)] text-sm font-inter font-semibold">
+                        {item.name.toUpperCase()}
+                      </p>
+                      <div className="grid gap-2">
+                        {item.subs.map((sub, index) => {
+                          return (
+                            <div
+                              className="flex gap-3"
+                              key={index}
+                              onMouseEnter={() => setCursorIn(unique + index)}
+                              onMouseLeave={() => setCursorIn(-1)}
+                            >
+                              <Link href={sub.link}>
+                                <p className="relative">
+                                  {sub.name}
+                                  <span
+                                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                                      cursorIn === unique + index
+                                        ? "scale-x-10"
+                                        : "scale-x-0"
+                                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                                  />
+                                </p>
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
         </div>
+        <hr className="mt-8 border-t-2" />
         <div className="flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
           <a className="flex gap-3">
             <p>Privacy policy</p>

@@ -5,6 +5,8 @@ import PartnersLogo from "./landing/PartnersLogos";
 import ServiceCard from "./landing/ServiceCard";
 import FullNews from "./landing/FullNews";
 import SubNews from "./landing/SubNews";
+import Testimonial from "./landing/Testimonial";
+import Testimonials from "./landing/Testimonials";
 
 export {
   TopNav,
@@ -14,4 +16,6 @@ export {
   Services,
   FullNews,
   SubNews,
+  Testimonial,
+  Testimonials,
 };

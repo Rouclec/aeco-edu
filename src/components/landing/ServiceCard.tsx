@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { FC, useState } from "react";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { BsArrowRight } from "react-icons/bs";
 
 type Props = {
   service: {
@@ -40,19 +40,26 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
           } right-0 left-0`}
         >
           {!top && (
-            <span className="w-0 h-0 border-b-[24px] border-b-[#45220c63] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
+            <span className="w-0 h-0 border-b-[24px] border-b-[#45220cd3] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
           )}
           <div
-            className={`relative w-full grid items-center justify-center ${
-              isHovered ? "h-48" : "h-24"
+            className={`relative w-full grid items-center transition-all justify-center ${
+              isHovered ? "h-60" : "h-26"
             } bg-[#45220c63] duration-500 ease-out p-6`}
           >
             {top && (
               <div
-                className={`absolute left-0 right-0 top-0 duration-700 ease-in-out ${
-                  isHovered ? "translate-y-10" : "-translate-y-full"
+                className={`absolute left-0 right-0 bottom-0 duration-700 ease-in-out ${
+                  isHovered ? "-translate-y-8" : "-translate-y-[calc(100%+4rem)]"
                 }`}
               >
+                <div className="grid mx-8 my-2 self-center">
+                  <p
+                    className={`text-center text-[var(--neutral-10)] font-inter text-[15px] lg:leading-[22px] lg:text-[18px]`}
+                  >
+                    {service.tag}
+                  </p>
+                </div>
                 <Link
                   href={service.link}
                   className="flex gap-2 items-center justify-center w-full"
@@ -60,24 +67,19 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                   <p className=" text-center text-[var(--secondary-500)] font-bold font-inter text-xl">
                     Discover more
                   </p>
-                  <AiOutlineArrowRight
+                  <BsArrowRight
                     size={24}
                     className="text-center text-[var(--secondary-500)] font-bold font-inter text-xl"
                   />
                 </Link>
-                <p
-                  className={`text-center text-[var(--neutral-10)] font-inter text-sm px-4 lg:text-lg`}
-                >
-                  {service.tag}
-                </p>
               </div>
             )}
             <p
-              className={`uppercase truncate text-center text-[var(--neutral-10)] font-inter font-extrabold text-lg lg:text-2xl ${
+              className={`uppercase text-center text-[var(--neutral-10)] font-inter font-extrabold text-lg lg:text-[24px] lg:leading-[30px] ${
                 isHovered
                   ? top
-                    ? "translate-y-10"
-                    : "-translate-y-10"
+                    ? "-translate-y-8"
+                    : "-translate-y-16"
                   : "translate-y-0"
               }`}
             >
@@ -86,14 +88,16 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
             {!top && (
               <div
                 className={`absolute left-0 right-0 bottom-0 duration-700 ease-in-out ${
-                  isHovered ? "-translate-y-10" : "translate-y-full"
+                  isHovered ? "-translate-y-16" : "translate-y-full"
                 }`}
               >
-                <p
-                  className={`text-center text-[var(--neutral-10)] font-inter text-sm px-4 lg:text-lg`}
-                >
-                  {service.tag}
-                </p>
+                <div className="grid mx-8 my-2 self-center">
+                  <p
+                    className={`text-center text-[var(--neutral-10)] font-inter text-[15px] lg:leading-[22px] lg:text-[18px]`}
+                  >
+                    {service.tag}
+                  </p>
+                </div>
                 <Link
                   href={service.link}
                   className="flex gap-2 items-center justify-center w-full"
@@ -101,7 +105,7 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
                   <p className=" text-center text-[var(--secondary-500)] font-bold font-inter text-xl">
                     Discover more
                   </p>
-                  <AiOutlineArrowRight
+                  <BsArrowRight
                     size={24}
                     className="text-center text-[var(--secondary-500)] font-bold font-inter text-xl"
                   />

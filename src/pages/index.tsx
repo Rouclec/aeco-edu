@@ -23,13 +23,13 @@ export default function Home() {
       <main>
         <div>
           <TopNav>
-            <div className="pb-32 overflow-x-hidden">
-            <div
+            <div className="pb-12 overflow-x-hidden">
+              <div
                 className="bg-cover bg-center w-full h-[80vh] overflow-hidden"
                 style={{ backgroundImage: `url("/assets/hero.png")` }}
               >
-                <div className="w-full h-full  grid md:grid-cols-3 items-center justify-center px-10 md:px-20 lg:px-40">
-                  <div className="grid w-full lg:w-[80%] bg-[#000508c1] p-8 col-span-2 gap-1">
+                <div className="w-[90vw] md:w-[75vw] lg:w-[60vw] m-auto h-full  grid items-center justify-center">
+                  <div className="grid w-full bg-[#000508c1] p-8  px-[15%] col-span-2 gap-1">
                     <p className="text-center pb-6 text-[var(--neutral-10)] font-inter font-bold text-xl lg:text-4xl lg:leading-10">
                       Your Journey Starts Here!
                     </p>
@@ -62,20 +62,20 @@ export default function Home() {
               <div className="my-16">
                 <PartnersLogo />
               </div>
-              <div className="my-16 mb-28 mx-10">
+              <div className="my-16 mb-28 mx-4 md:mx-10">
                 <Services />
               </div>
-              <div className="mt-16  items-center justify-center flex flex-col">
+              <div className="mt-2  items-center mjustify-center flex flex-col">
                 <div className="grid items-center justify-center px-10">
-                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
+                  <p className="text-center mb-3 uppercase text-[var(--neutral-600)] font-inter font-bold text-4xl lg:text-5xl">
                     Partner Highlights
                   </p>
-                  <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
+                  <p className="text-center text-[var(--neutral-500)] w-full md:w-[80%] m-auto font-inter text-[18px] mb-4">
                     We believe in the power of collaboration and building strong
                     alliances to achieve success together.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-8 my-8 w-[100vw] px-10 mt-12">
+                <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-6 my-8 px-10 mt-4">
                   <PartnerCard />
                   <PartnerCard />
                   <PartnerCard />
@@ -83,15 +83,15 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-12 items-center justify-center flex flex-col">
-              <div className="grid items-center justify-center px-10">
-                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
+                <div className="grid items-center justify-center px-10">
+                  <p className="text-center mb-2 text-[var(--neutral-600)] font-inter font-bold text-4xl lg:text-5xl">
                     NEWS
                   </p>
-                  <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
-                    Breaking News: Stay Updated with the Latest Headlines
+                  <p className="text-center text-[var(--neutral-500)] w-full md:w-[80%] m-auto font-inter text-[18px] mb-4">
+                    Breaking News: Stay updated with the latest opportunities
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-10 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 px-10 w-full">
                   <div className="grid row-span-1">
                     <FullNews />
                   </div>
@@ -115,16 +115,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="mt-12 items-center justify-center flex flex-col mx-10">
-              <div className="grid items-center justify-center px-10">
-                  <p className="text-center mb-4 text-[var(--neutral-600)] font-inter font-bold text-xl md:text-3xl lg:text-5xl my-2">
+              <div className="mt-20 items-center justify-center flex flex-col mx-4 md:mx-10">
+                <div className="grid items-center justify-center px-10">
+                  <p className="text-center uppercase mb-4 text-[var(--neutral-600)] font-inter font-bold text-4xl lg:text-5xl my-2">
                     Testimonials
                   </p>
-                  <p className="text-center text-[var(--neutral-600)] font-inter text-[16px] mb-4">
-                    Breaking News: Stay Updated with the Latest Headlines
-                  </p>
                 </div>
-                <div className="mt-8">
+                <div className="mt-4">
                   <Testimonials />
                 </div>
               </div>

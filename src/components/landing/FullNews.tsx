@@ -1,17 +1,18 @@
 import Link from "next/link";
 import React, { FC } from "react";
+import { BsArrowRight } from "react-icons/bs";
 
 const FullNews: FC = () => {
   return (
-    <div className="grid grid-rows-2">
+    <div className="grid">
       <div className="overflow-hidden w-full relative">
         <div
           className="absolute inset-0 bg-cover bg-center grid transition-transform duration-500 hover:scale-110"
           style={{ backgroundImage: `url("/assets/work_overseas.jpeg")` }}
         />
       </div>
-      <div className="flex flex-col justify-between p-4 bg-[var(--neutral-100)]">
-        <div className="grid gap-6">
+      <div className="flex flex-col h-fit justify-between p-4 bg-[var(--neutral-100)]">
+        <div className="grid gap-4">
           <p className="text-[var(--neutral-400)] font-inter text-[15px] font-bold">
             Date: 17/10/23
           </p>
@@ -27,9 +28,15 @@ const FullNews: FC = () => {
             </p>
           </div>
         </div>
-        <Link className="btn-link w-fit" href={"/"}>
-          Learn more
-        </Link>
+        <div className="flex gap-2 items-center">
+          <Link className="btn-link w-fit my-3" href={"/"}>
+            Learn more
+          </Link>
+          <BsArrowRight
+            size={24}
+            className="text-center text-[var(--secondary-500)] font-bold font-inter text-xl"
+          />
+        </div>
       </div>
     </div>
   );

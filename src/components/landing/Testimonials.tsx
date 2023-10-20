@@ -105,7 +105,7 @@ const Testimonials: FC = () => {
   }, []);
 
   return (
-    <div className="w-[96vw]">
+    <div className="w-[94vw]">
       <Slider {...settings} ref={sliderRef}>
         {partnerLogos.map((partner, index) => {
           return (
@@ -113,7 +113,7 @@ const Testimonials: FC = () => {
               className="grid h-full items-center justify-center   rounded-lg"
               key={index}
             >
-              <div className="w-[80%]  m-auto my-4 grid">
+              <div className="w-[95%]  m-auto my-4 grid">
                 <Testimonial />
               </div>
             </div>

@@ -12,13 +12,13 @@ const services = [
     link: "/",
   },
   {
-    title: "Language prepration",
+    title: "International year programme",
     tag: "Unlock a world of opportunities with language preparation",
     image: "/assets/language_prep.jpeg",
     link: "/",
   },
   {
-    title: "Work overseas",
+    title: "Local placement",
     tag: "Unlock new opportunities by working overseas",
     image: "/assets/work_overseas.jpeg",
     link: "/",

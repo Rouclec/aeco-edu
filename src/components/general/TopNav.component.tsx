@@ -51,7 +51,7 @@ const navItems = [
         link: "/",
       },
       {
-        name: "On Campus",
+        name: "On-Campus",
         link: "/",
       },
     ],
@@ -76,12 +76,78 @@ const navItems = [
         name: "School Management Systems",
         link: "/",
       },
-      // {
-      //   name: "Partnership development",
-      //   link: "/",
-      // },
+      {
+        name: "Partnership development",
+        link: "/",
+      },
       {
         name: "Student recruitment",
+        link: "/",
+      },
+    ],
+  },
+];
+
+const bottomNavItems = [
+  {
+    name: "Aeco Education",
+    subs: [
+      {
+        name: "About Us",
+        link: "/",
+      },
+      {
+        name: "Careers",
+        link: "/",
+      },
+      {
+        name: "News",
+        link: "/",
+      },
+      {
+        name: "FAQ",
+        link: "/",
+      },
+    ],
+  },
+  {
+    name: "Resources",
+    subs: [
+      {
+        name: "Entry Requirements",
+        link: "/",
+      },
+      {
+        name: "Partner With Us",
+        link: "/",
+      },
+      {
+        name: "Course Finder",
+        link: "/",
+      },
+      {
+        name: "Admissions",
+        link: "/",
+      },
+    ],
+  },
+  {
+    name: "Legal",
+    subs: [
+      {
+        name: "Anti Slavery & Human Trafficking",
+        link: "/",
+      },
+      {
+        name: "Student Protection Plan",
+        link: "/",
+      },
+      {
+        name: "Policies & Statements",
+        link: "/",
+      },
+      {
+        name: "Refund Policy",
         link: "/",
       },
     ],
@@ -302,7 +368,7 @@ const TopNav: FC<Props> = ({ children }) => {
         </div>
       </div>
       <main className="mt-24 md:mt-32">{children}</main>
-      <div className="bottom-0 right-0 left-0 bg-[var(--tetiary-500)] px-14 py-12 z-[99999]">
+      <div className="bottom-0 right-0 left-0 bg-[var(--primary-800)] text-[var(--tetiary-500)] px-14 py-12 z-[99999]">
         <div className="w-full h-full gap-2">
           <div className=" items-center justify-center gap-4">
             <Link href={"/"}>
@@ -317,129 +383,123 @@ const TopNav: FC<Props> = ({ children }) => {
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-7 gap-x-2 md:gap-x-10 lg:gap-x-28 gap-y-10">
             <div className="grid gap-2 col-span-2 mt-8 [&>*]:hover:cursor-pointer">
               <a
-                className="relative flex gap-3 w-fit"
+                className="relative flex gap-3 w-fit hover:text-[var(--secondary-500)]"
                 href="tel:+237650663001"
                 onMouseEnter={() => setCursorIn(0)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlinePhone size={24} />
-                <p className="relative">
+                <HiOutlinePhone size={24} className="text-[#b8bec0]"/>
+                <p className="relative text-[#b8bec0] font-inter">
                   (+237) 650 663 001{" "}
                   <span
                     className={`absolute -bottom-0 left-[2px] w-[90%] ${
                       cursorIn === 0 ? "scale-x-10" : "scale-x-0"
-                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                    } h-[2px] bg-[var(--secondary-500)] transform transition-transform duration-500 origin-left`}
                   />
                 </p>
               </a>
               <a
-                className="flex gap-3 w-fit"
+                className="flex gap-3 w-fit hover:text-[var(--secondary-500)]"
                 href="mailto:info@aecoedu.com"
                 onMouseEnter={() => setCursorIn(1)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlineEnvelope size={24} />
-                <p className="relative">
+                <HiOutlineEnvelope size={24} className="text-[#b8bec0]"/>
+                <p className="relative text-[#b8bec0] font-inter">
                   info@aecoedu.com
                   <span
                     className={`absolute -bottom-0 left-[2px] w-[90%] ${
                       cursorIn === 1 ? "scale-x-10" : "scale-x-0"
-                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                    } h-[2px] bg-[var(--secondary-500)] transform transition-transform duration-500 origin-left`}
                   />
                 </p>
               </a>
               <a
-                className="flex gap-3 w-fit"
+                className="flex gap-3 w-fit hover:text-[var(--secondary-500)]"
                 onMouseEnter={() => setCursorIn(2)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <VscLocation size={24} />
-                <p className="relative">
+                <VscLocation size={24} className="text-[#b8bec0]"/>
+                <p className="relative text-[#b8bec0] font-inter">
                   No. 237 Rue Dibombé{" "}
                   <span
                     className={`absolute -bottom-0 left-[2px] w-[90%] ${
                       cursorIn === 2 ? "scale-x-10" : "scale-x-0"
-                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                    } h-[2px] bg-[var(--secondary-500)] transform transition-transform duration-500 origin-left`}
                   />
                 </p>
               </a>
               <a
-                className="flex gap-3 w-fit"
+                className="flex gap-3 w-fit hover:text-[var(--secondary-500)]"
                 onMouseEnter={() => setCursorIn(3)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlineGlobeEuropeAfrica size={24} />
-                <p className="relative">
+                <HiOutlineGlobeEuropeAfrica size={24} className="text-[#b8bec0]"/>
+                <p className="relative text-[#b8bec0] font-inter">
                   Douala, Cameroon{" "}
                   <span
                     className={`absolute -bottom-0 left-[2px] w-[90%] ${
                       cursorIn === 3 ? "scale-x-10" : "scale-x-0"
-                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
+                    } h-[2px] bg-[var(--secondary-500)] transform transition-transform duration-500 origin-left`}
                   />
                 </p>
               </a>
             </div>
             <div className="grid col-span-1 md:col-span-5  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10">
-              {navItems
-                .filter(
-                  (item) =>
-                    item.name.toLowerCase() !== "home" &&
-                    item.name.toLocaleLowerCase() !== "pathways"
-                )
-                .map((item, index) => {
-                  const unique = 4 * (index + 1);
-                  return (
-                    <div
-                      className="col-span-1 [&>*]:hover:cursor-pointer"
-                      key={index}
-                    >
-                      <p className="mb-8 text-[var(--neutral-700)] text-sm font-inter font-semibold">
-                        {item.name.toUpperCase()}
-                      </p>
-                      <div className="grid gap-2">
-                        {item.subs.map((sub, index) => {
-                          return (
-                            <div
-                              className="flex gap-3"
-                              key={index}
-                              onMouseEnter={() => setCursorIn(unique + index)}
-                              onMouseLeave={() => setCursorIn(-1)}
-                            >
-                              <Link href={sub.link}>
-                                <p className="relative">
-                                  {sub.name}
-                                  <span
-                                    className={`absolute -bottom-0 left-[2px] w-[90%] ${
-                                      cursorIn === unique + index
-                                        ? "scale-x-10"
-                                        : "scale-x-0"
-                                    } h-[2px] bg-[var(--neutral-800)] transform transition-transform duration-500 origin-left`}
-                                  />
-                                </p>
-                              </Link>
-                            </div>
-                          );
-                        })}
-                      </div>
+              {bottomNavItems.map((item, index) => {
+                const unique = 4 * (index + 1);
+                return (
+                  <div
+                    className="col-span-1 [&>*]:hover:cursor-pointer w-fit"
+                    key={index}
+                  >
+                    <p className="mb-8 text-[var(--tetiary-500)] text-sm font-inter font-semibold">
+                      {item.name.toUpperCase()}
+                    </p>
+                    <div className="grid gap-2">
+                      {item.subs.map((sub, index) => {
+                        return (
+                          <div
+                            className="flex gap-3 w-fit"
+                            key={index}
+                            onMouseEnter={() => setCursorIn(unique + index)}
+                            onMouseLeave={() => setCursorIn(-1)}
+                          >
+                            <Link href={sub.link}>
+                              <p className="relative text-[#b8bec0] font-inter hover:text-[var(--secondary-500)]">
+                                {sub.name}
+                                <span
+                                  className={`absolute -bottom-0 left-[2px] w-[90%] ${
+                                    cursorIn === unique + index
+                                      ? "scale-x-10"
+                                      : "scale-x-0"
+                                  } h-[2px] bg-[var(--secondary-500)] transform transition-transform duration-500 origin-left`}
+                                />
+                              </p>
+                            </Link>
+                          </div>
+                        );
+                      })}
                     </div>
-                  );
-                })}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
-        <hr className="mt-8 border-t-2" />
+        <hr className="mt-8 border-t-2 text-[var(--neutral-100)] opacity-70" />
         <div className="grid grid-cols-1 gap-y-4 md:flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
-          <a className="flex gap-3">
-            <p>Privacy policy</p>
+          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
+            <p>Privacy Policy</p>
           </a>
-          <a className="flex gap-3">
+          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
             <p>Cookie Policy</p>
           </a>
-          <a className="flex gap-3">
-            <p>Contact us</p>
+          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
+            <p>Contact Us</p>
           </a>
-          <a className="flex gap-3">
-            <p>Opportunities</p>
+          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
+            <p>Environmental Policies</p>
           </a>
         </div>
       </div>

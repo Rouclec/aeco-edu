@@ -322,14 +322,14 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         )}
       </div>
-      <div className="hidden md:block  fixed top-24 right-0 left-0 h-12 bg-[var(--neutral-10)] px-8 lg:px-14 z-[99999]">
+      <div className="hidden md:block  fixed top-24 right-0 left-0 h-16 bg-[var(--neutral-10)] px-8 lg:px-10 z-[99999]">
         <div className="flex w-full h-full items-center justify-between">
           <div className="flex items-center">
             {navItems.map((item, index) => {
               return (
                 <div
                   key={index}
-                  className={`relative flex py-4 lg:py-3 px-4  items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
+                  className={`relative flex py-4 lg:py-5 px-4  items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
                     item.name.toLowerCase() === "home"
                       ? "active-nav"
                       : "[&>*]:font-[500]"
@@ -345,7 +345,7 @@ const TopNav: FC<Props> = ({ children }) => {
                   )}
                   {hoveredNav === item.name && item.subs.length > 0 && (
                     <div
-                      className={`absolute top-12 bg-[#fffffff6] -left-4 lg:left-0 min-w-full ${
+                      className={`absolute top-16 bg-[#fffffff6] -left-4 lg:left-0 min-w-full ${
                         item.name.toLowerCase() === "pathways" ||
                         item.name.toLowerCase() === "education services"
                           ? "w-[28vw] lg:w-[20vw]"
@@ -367,7 +367,7 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      <main className="mt-24 md:mt-32">{children}</main>
+      <main className="mt-24 md:mt-40">{children}</main>
       <div className="bottom-0 right-0 left-0 bg-[var(--primary-800)] text-[var(--tetiary-500)] px-14 py-12 z-[99999]">
         <div className="w-full h-full gap-2">
           <div className=" items-center justify-center gap-4">

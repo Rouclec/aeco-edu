@@ -388,7 +388,7 @@ const TopNav: FC<Props> = ({ children }) => {
                 onMouseEnter={() => setCursorIn(0)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlinePhone size={24} className="text-[#b8bec0]"/>
+                <HiOutlinePhone size={24} className="text-[#b8bec0]" />
                 <p className="relative text-[#b8bec0] font-inter">
                   (+237) 650 663 001{" "}
                   <span
@@ -404,7 +404,7 @@ const TopNav: FC<Props> = ({ children }) => {
                 onMouseEnter={() => setCursorIn(1)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlineEnvelope size={24} className="text-[#b8bec0]"/>
+                <HiOutlineEnvelope size={24} className="text-[#b8bec0]" />
                 <p className="relative text-[#b8bec0] font-inter">
                   info@aecoedu.com
                   <span
@@ -419,7 +419,7 @@ const TopNav: FC<Props> = ({ children }) => {
                 onMouseEnter={() => setCursorIn(2)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <VscLocation size={24} className="text-[#b8bec0]"/>
+                <VscLocation size={24} className="text-[#b8bec0]" />
                 <p className="relative text-[#b8bec0] font-inter">
                   No. 237 Rue Dibombé{" "}
                   <span
@@ -434,7 +434,10 @@ const TopNav: FC<Props> = ({ children }) => {
                 onMouseEnter={() => setCursorIn(3)}
                 onMouseLeave={() => setCursorIn(-1)}
               >
-                <HiOutlineGlobeEuropeAfrica size={24} className="text-[#b8bec0]"/>
+                <HiOutlineGlobeEuropeAfrica
+                  size={24}
+                  className="text-[#b8bec0]"
+                />
                 <p className="relative text-[#b8bec0] font-inter">
                   Douala, Cameroon{" "}
                   <span
@@ -488,19 +491,21 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
         </div>
         <hr className="mt-8 border-t-2 text-[var(--neutral-100)] opacity-70" />
-        <div className="grid grid-cols-1 gap-y-4 md:flex w-full items-center justify-between font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
-          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
+        <div className="grid grid-cols-1 gap-y-6 md:grid-cols-5 lg:grid-cols-7 gap-x-2 md:gap-x-10 lg:gap-x-28 w-full items-center font-inter text-[var(--neutral-600)] [&>*]:hover:cursor-pointer p-2 mt-8">
+          <a className="grid gap-2 col-span-2 text-[var(--secondary-300)] font-semibold font-inter">
             <p>Privacy Policy</p>
           </a>
-          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
-            <p>Cookie Policy</p>
-          </a>
-          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
-            <p>Contact Us</p>
-          </a>
-          <a className="flex gap-3 text-[var(--secondary-300)] font-semibold font-inter">
-            <p>Environmental Policies</p>
-          </a>
+          <div className="grid col-span-1 md:col-span-5 grid-cols-1 gap-y-6 lg:grid-cols-3">
+            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+              <p>Cookie Policy</p>
+            </a>
+            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+              <p>Contact Us</p>
+            </a>
+            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+              <p>Environmental Policies</p>
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -75,7 +75,7 @@ export default function Home() {
                     alliances to achieve success together.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-6 my-8 px-10 mt-4">
+                <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-6 my-8 px-6 lg:px-10 md:px-8 mt-4">
                   <PartnerCard />
                   <PartnerCard />
                   <PartnerCard />
@@ -91,7 +91,7 @@ export default function Home() {
                     Breaking News: Stay updated with the latest opportunities
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 px-10 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 px-6 lg:px-10 md:px-8 w-full">
                   <div className="grid row-span-1">
                     <FullNews />
                   </div>

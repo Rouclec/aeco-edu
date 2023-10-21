@@ -52,7 +52,7 @@ const settings = {
 
 const Services: FC = () => {
   return (
-    <div className="">
+    <div className="lg:-ml-[7px] md:-ml-3">
       <Slider {...settings}>
         {services.map((service, index) => {
           return (

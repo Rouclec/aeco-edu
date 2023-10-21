@@ -73,14 +73,14 @@ const Testimonials: FC = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 975,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 864,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -105,7 +105,7 @@ const Testimonials: FC = () => {
   }, []);
 
   return (
-    <div className="w-[94vw]">
+    <div className="w-screen px-4 md:px-6 lg:px-[34px]">
       <Slider {...settings} ref={sliderRef}>
         {partnerLogos.map((partner, index) => {
           return (

@@ -4,8 +4,8 @@ import { BsArrowRight } from "react-icons/bs";
 
 const FullNews: FC = () => {
   return (
-    <div className="grid">
-      <div className="overflow-hidden w-full relative">
+    <div className="flex flex-col">
+      <div className="overflow-hidden w-full relative flex-1 flex-grow">
         <div
           className="absolute inset-0 bg-cover bg-center grid transition-transform duration-500 hover:scale-110"
           style={{ backgroundImage: `url("/assets/work_overseas.jpeg")` }}

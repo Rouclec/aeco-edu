@@ -40,17 +40,24 @@ const ServiceCard: FC<Props> = ({ service, top = true }) => {
           } right-0 left-0`}
         >
           {!top && (
-            <span className="w-0 h-0 border-b-[24px] border-b-[#45220cd3] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
+            <span className="w-0 h-0 border-b-[24px] border-b-[#45220c63] self-center m-auto border-l-[24px] border-r-[24px] border-l-transparent border-r-transparent" />
           )}
           <div
-            className={`relative w-full grid items-center transition-all justify-center ${
-              isHovered ? "h-60" : "h-26"
+            className={`relative w-full grid items-center transition-height justify-center ${
+              isHovered ? "h-60" : "h-24"
             } bg-[#45220c63] duration-500 ease-out p-6`}
+            style={{
+              maxHeight: isHovered ? "15rem" : "6rem",
+              overflow: "hidden",
+              transition: "max-height 0.5s",
+            }}
           >
             {top && (
               <div
                 className={`absolute left-0 right-0 bottom-0 duration-700 ease-in-out ${
-                  isHovered ? "-translate-y-8" : "-translate-y-[calc(100%+4rem)]"
+                  isHovered
+                    ? "-translate-y-8"
+                    : "-translate-y-[calc(100%+4rem)]"
                 }`}
               >
                 <div className="grid mx-8 my-2 self-center">

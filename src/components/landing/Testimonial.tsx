@@ -4,7 +4,7 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 const Testimonial: FC = () => {
   return (
-    <div className="grid ">
+    <div className="grid">
       <div className="overflow-hidden w-full  h-48 relative">
         <div
           className="absolute inset-0 bg-cover bg-center grid transition-transform duration-500 rounded-t-sm"
@@ -25,15 +25,13 @@ const Testimonial: FC = () => {
               <p className="mt-2 px-2 italic text-[var(--neutral-10)]">
                 Aeco Edu admin
               </p>
-              <p className="text-[var(--neutral-10)]">
-                <div className="flex gap-2">
-                  <BsStarFill size={18} className="text-[var(--neutral-10)]" />
-                  <BsStarFill size={18} className="text-[var(--neutral-10)]" />
-                  <BsStarFill size={18} className="text-[var(--neutral-10)]" />
-                  <BsStarFill size={18} className="text-[var(--neutral-10)]" />
-                  <BsStarHalf size={18} className="text-[var(--neutral-10)]" />
-                </div>
-              </p>
+              <div className="flex gap-2">
+                <BsStarFill size={18} className="text-[var(--neutral-10)]" />
+                <BsStarFill size={18} className="text-[var(--neutral-10)]" />
+                <BsStarFill size={18} className="text-[var(--neutral-10)]" />
+                <BsStarFill size={18} className="text-[var(--neutral-10)]" />
+                <BsStarHalf size={18} className="text-[var(--neutral-10)]" />
+              </div>
             </div>
             <div>
               <p className="mt-2 px-2 font-[550] font-inter italic text-[var(--neutral-10)]">

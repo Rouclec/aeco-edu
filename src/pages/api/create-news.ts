@@ -61,7 +61,7 @@ const saveData = (news: any[]) => {
 };
 
 const blog = (req: NextApiRequest, res: NextApiResponse) => {
-  saveData(news);
+  saveData(req.body?.news);
   res.send("OK");
 };
 

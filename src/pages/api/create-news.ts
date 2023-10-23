@@ -47,12 +47,22 @@ const saveData = (news: any[]) => {
     const newsString = JSON.stringify(news);
     const name = slugify(news.title.toLowerCase());
     const directoryPath = path.join(__dirname, "data");
+
+    try {
+      if (!fs.existsSync(directoryPath)) {
+        // Create the directory synchronously
+        fs.mkdirSync(directoryPath);
+      }
+    } catch (err) {
+      console.error("Error creating directory:", err);
+    }
+
     fs.writeFile(`${directoryPath}/${name}.json`, newsString, finished);
   });
 };
 
 const blog = (req: NextApiRequest, res: NextApiResponse) => {
-  saveData(req.body?.news);
+  saveData(news);
   res.send("OK");
 };
 

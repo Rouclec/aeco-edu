@@ -5,6 +5,7 @@ import path from "path";
 const directoryPath = path.join(__dirname, "data");
 
 function readJSONFilesInDirectory(directoryPath: string) {
+
   const files = fs.readdirSync(directoryPath);
 
   const jsonFiles = files.filter((file) =>

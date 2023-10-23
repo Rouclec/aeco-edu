@@ -22,14 +22,14 @@ const FullNews: FC<Props> = ({ news }) => {
       <div className="flex flex-col h-fit justify-between p-4 bg-[var(--neutral-100)]">
         <div className="grid gap-4">
           <p className="text-[var(--neutral-400)] font-inter text-[15px] font-bold">
-            Date: {news.date}
+            Date: {news?.date}
           </p>
           <div className="grid gap-3">
             <p className="text-[var(--neutral-600)] font-inter text-xl font-bold">
-              {news.title}
+              {news?.title}
             </p>
             <p className="text-[var(--neutral-600)] font-inter font-[500] text-[15px]">
-              {news.body}
+              {news?.body}
             </p>
           </div>
         </div>

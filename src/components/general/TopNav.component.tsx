@@ -329,7 +329,7 @@ const TopNav: FC<Props> = ({ children }) => {
               return (
                 <div
                   key={index}
-                  className={`relative flex py-4 lg:py-5 px-4  items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
+                  className={`relative flex px-4 h-16 items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
                     item.name.toLowerCase() === "home"
                       ? "active-nav"
                       : "[&>*]:font-[500]"

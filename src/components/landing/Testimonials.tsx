@@ -4,42 +4,51 @@ import Testimonial from "./Testimonial";
 import ServiceCard from "./ServiceCard";
 import Image from "next/image";
 
-const partnerLogos = [
+const testimonials = [
   {
-    name: "Avila University USA",
-    image: "/assets/avila.png",
+    name: "Mbah Nelly Widin",
+    image: "/assets/Nelly.jpeg",
+    university: "Greenwhich University",
+    program: "Msc. International Business",
+    rating: 5,
+    message:
+      "I am thrileld to share my incredible experience with AECO Education! \nGetting addmission into a UK university had always been a daunting task for me, but AECO Education made it an effortless journey.",
   },
   {
-    name: "Berlin School of Business and Innovation",
-    image: "/assets/berlin.png",
+    name: "Stephanie Njikang",
+    image: "/assets/Rita_1.jpeg",
+    university: "BPP University",
+    program: "MSc. Project management",
+    rating: 5,
+    message:
+      "After several struggles, it finally happened with the help of AECO Education. I got my visa to the UK special thanks to AECO Education. \nI will recommend you to the world! You gave me a guaranteed future.",
   },
   {
-    name: "Elmira College, USA",
-    image: "/assets/elmira.png",
+    name: "Himan Sumda Mboli",
+    image: "/assets/Hilman_1.jpeg",
+    university: "University of Dundee",
+    program: "BSc. International Business",
+    rating: 4.5,
+    message:
+      "I'm in the UK today all thanks to AECO Education. They guided me througout my travel process and was a success \nTheir procedure is very simple and stress free trust me. UK to the world",
   },
   {
-    name: "Global College Malta",
-    image: "/assets/global_college_malta.png",
+    name: "Michel Dirane",
+    image: "/assets/michel_1.jpeg",
+    university: "C3S Business School, Barcelona",
+    program: "Business Management",
+    rating: 5,
+    message:
+      "I had my way to C3S Business school in Barcelona thanks to AECO. With Aeco I didn't just get a smooth process through my application, I also got well orientated about the program I had chosen. Thank you again for taking me through.",
   },
   {
-    name: "Norquest College, Canada",
-    image: "/assets/norquest.png",
-  },
-  {
-    name: "Opuvia",
-    image: "/assets/opuvia.png",
-  },
-  {
-    name: "St. Alessandro University Institute",
-    image: "/assets/sau.png",
-  },
-  {
-    name: "Texila American University",
-    image: "/assets/texila.png",
-  },
-  {
-    name: "Trebas Institute Canada",
-    image: "/assets/trebas.png",
+    name: "Brandom Chefon",
+    image: "/assets/brandom_1.jpeg",
+    university: "Texila American University, Zambia",
+    program: "Doctor of Medicine",
+    rating: 4.5,
+    message:
+      "I was recommended to trust AECO which I did and today I would say it was worth it. To everyone one out there if you're looking for the one trusted education placement agency, consult with AECO. Their procedure is stress free.",
   },
 ];
 
@@ -107,14 +116,14 @@ const Testimonials: FC = () => {
   return (
     <div className="w-screen px-4 md:px-6 lg:px-[34px]">
       <Slider {...settings} ref={sliderRef}>
-        {partnerLogos.map((partner, index) => {
+        {testimonials.map((testimonial, index) => {
           return (
             <div
               className="grid h-full items-center justify-center   rounded-lg"
               key={index}
             >
               <div className="w-[95%]  m-auto my-4 grid">
-                <Testimonial />
+                <Testimonial testimonial={testimonial} />
               </div>
             </div>
           );

@@ -1,6 +1,9 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
+import Head from "next/head";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const clash = localFont({
   src: [
@@ -46,10 +49,26 @@ export const inter = localFont({
   variable: "--font-inter",
 });
 
+const client = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${clash.variable} ${inter.variable}`}>
-      <Component {...pageProps} />
-    </main>
+    <QueryClientProvider client={client}>
+      <Head>
+        <title>AECO EDUCATION</title>
+        <meta name="description" content="Travel abroad to work, study..." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="icon"
+          href="/assets/brand_logo.png?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </Head>
+      <main className={`${clash.variable} ${inter.variable}`}>
+        <Component {...pageProps} />
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      </main>
+    </QueryClientProvider>
   );
 }

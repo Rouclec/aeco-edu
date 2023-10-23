@@ -8,17 +8,62 @@ import {
   SubNews,
   Testimonials,
 } from "@/components";
+import { useGetAllNews } from "@/hooks/newsHooks";
 import Head from "next/head";
-import { useRef } from "react";
 
+const partners = [
+  {
+    name: "Opuvia",
+    logo: "/assets/opuvia.png",
+    image: "",
+    tag: "We Power Human Capital Globally",
+    body: "Opuvia is on a mission to close the gap between education and employment and curb the global problem of graduate under and unemployment. Opuvia believes that every person deserves an opportunity to succeed and thrive in their chosen career, and are committed to providing the tools and resources necessary to make that a reality",
+    link: "https://opuvia.co",
+  },
+  {
+    name: "The University of Law",
+    logo: "/assets/ulaw_logo.png",
+    image: "",
+    tag: "Ulaw - A Place for Everyone",
+    body: "ULaw's guiding principle that future lawyers and business leaders should learn in a realistic, professional and contemporary context, with plenty of practical interactive engagement sets them apart from other universities. With 16 campuses in the UK, international sites in Hong Kong and Berlin, and a dedicated Online Campus you have plenty of choices in where to study with us.",
+    link: "https://law.ac.uk",
+  },
+  {
+    name: "Texila American University",
+    logo: "/assets/texila.png",
+    image: "",
+    tag: "Pushing Forward Bounderies of Knowledge",
+    body: "Texila American University has been developing great minds in medicine for more than a decade. With state-of-the-art libraries and laboratories, we offer our students the opportunity to explore extensive and world-class learning material",
+    link: "https://tauedu.org/",
+  },
+  {
+    name: "Trebas Institute",
+    logo: "/assets/trebas.png",
+    image: "",
+    tag: "Dedicated to Training Talents of Tomorrow",
+    body: "Trebas Institute Quebec and Ontario Inc. offers a vast portfolio in the areas of music, film, business and technology, as well as management programmes. With the combination of expert instructors and state-of-the-art equipment, their students are truly prepared to leave their mark in their chosen field",
+    link: "https://www.trebas.com/",
+  },
+];
 export default function Home() {
+  const { data: news } = useGetAllNews(
+    () => {},
+    () => {}
+  );
+
+  console.log({ news });
   return (
     <>
       <Head>
         <title>AECO EDUCATION</title>
         <meta name="description" content="Travel abroad to work, study..." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
       </Head>
       <main>
         <div>
@@ -76,10 +121,9 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="grid grid-cols-1 items-center justify-center md:grid-cols-2 lg:grid-cols-4 gap-6 my-8 px-6 lg:px-10 md:px-8 mt-4">
-                  <PartnerCard />
-                  <PartnerCard />
-                  <PartnerCard />
-                  <PartnerCard />
+                  {partners.map((partner, index) => (
+                    <PartnerCard key={index} partner={partner} />
+                  ))}
                 </div>
               </div>
               <div className="mt-12 items-center justify-center flex flex-col">
@@ -93,24 +137,26 @@ export default function Home() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 px-6 lg:px-10 md:px-8 w-full">
                   <div className="grid row-span-1">
-                    <FullNews />
+                    <FullNews news={news?.data[0]} />
                   </div>
                   <div className="grid row-span-1 grid-cols-2 gap-4">
                     <div className="grid row-span-1  grid-rows-2 gap-4">
-                      <div className="col-span-1 ">
-                        <SubNews />
-                      </div>
-                      <div className="col-span-1 ">
-                        <SubNews />
-                      </div>
+                      {news?.data
+                        .slice(1, 3)
+                        .map((news: any, index: number) => (
+                          <div className="col-span-1 " key={index}>
+                            <SubNews news={news} />
+                          </div>
+                        ))}
                     </div>
                     <div className="grid row-span-1  grid-rows-2 gap-4">
-                      <div className="col-span-1 ">
-                        <SubNews />
-                      </div>
-                      <div className="col-span-1 ">
-                        <SubNews />
-                      </div>
+                      {news?.data
+                        .slice(3, 5)
+                        .map((news: any, index: number) => (
+                          <div className="col-span-1 " key={index}>
+                            <SubNews news={news} />
+                          </div>
+                        ))}
                     </div>
                   </div>
                 </div>

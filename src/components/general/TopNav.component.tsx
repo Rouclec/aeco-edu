@@ -11,7 +11,6 @@ import {
 import { VscLocation } from "react-icons/vsc";
 import {
   HiOutlineChevronDown,
-  HiOutlineChevronUp,
   HiOutlineEnvelope,
   HiOutlineGlobeEuropeAfrica,
   HiOutlinePhone,
@@ -30,16 +29,16 @@ const navItems = [
     name: "Student Placement",
     subs: [
       {
-        name: "Study Abroad",
-        link: "/",
+        name: "Local Student Placement",
+        link: "/student-placement/local",
       },
       {
-        name: "Local Placement",
-        link: "/",
+        name: "Study Abroad",
+        link: "/student-placement/study-abroad",
       },
       {
         name: "Online Studies",
-        link: "/",
+        link: "/student-placement/online-studies",
       },
     ],
   },
@@ -48,11 +47,11 @@ const navItems = [
     subs: [
       {
         name: "International Year Programme",
-        link: "/",
+        link: "/pathways/international-year-programme",
       },
       {
-        name: "On-Campus",
-        link: "/",
+        name: "Partner Pathways",
+        link: "/pathways/partner-pathways",
       },
     ],
   },
@@ -61,11 +60,11 @@ const navItems = [
     subs: [
       {
         name: "Exam Preparations",
-        link: "/",
+        link: "/language-education/exam-preparations",
       },
       {
         name: "Language Trainings",
-        link: "/",
+        link: "/language-education/language-trainings",
       },
     ],
   },
@@ -74,15 +73,15 @@ const navItems = [
     subs: [
       {
         name: "School Management Systems",
-        link: "/",
+        link: "/education-services/school-management-system",
       },
       {
         name: "Partnership development",
-        link: "/",
+        link: "/education-services/partnership-development",
       },
       {
         name: "Student recruitment",
-        link: "/",
+        link: "/education-services/student-recruitment",
       },
     ],
   },
@@ -94,19 +93,19 @@ const bottomNavItems = [
     subs: [
       {
         name: "About Us",
-        link: "/",
+        link: "/about",
       },
       {
         name: "Careers",
-        link: "/",
+        link: "/careers",
       },
       {
         name: "News",
-        link: "/",
+        link: "/news",
       },
       {
         name: "FAQ",
-        link: "/",
+        link: "/faq",
       },
     ],
   },
@@ -115,19 +114,19 @@ const bottomNavItems = [
     subs: [
       {
         name: "Entry Requirements",
-        link: "/",
+        link: "/entry-requirements",
       },
       {
         name: "Partner With Us",
-        link: "/",
+        link: "/partner-with-us",
       },
       {
         name: "Course Finder",
-        link: "/",
+        link: "/course-finder",
       },
       {
         name: "Admissions",
-        link: "/",
+        link: "/admission",
       },
     ],
   },
@@ -136,19 +135,19 @@ const bottomNavItems = [
     subs: [
       {
         name: "Anti Slavery & Human Trafficking",
-        link: "/",
+        link: "/anti-slavery-human-trafficking",
       },
       {
         name: "Student Protection Plan",
-        link: "/",
+        link: "/student-protection-plan",
       },
       {
         name: "Policies & Statements",
-        link: "/",
+        link: "/policies-statements",
       },
       {
         name: "Refund Policy",
-        link: "/",
+        link: "/refund-policy",
       },
     ],
   },
@@ -176,6 +175,11 @@ const TopNav: FC<Props> = ({ children }) => {
 
   const buttonRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const activePath = path.split("/")[1];
+    activePath === "" ? setActive("/") : setActive(activePath);
+  }, [path]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -211,9 +215,28 @@ const TopNav: FC<Props> = ({ children }) => {
           </div>
           <div className="gap-8 items-center hidden md:flex">
             <div className="flex gap-3">
-              <AiOutlineFacebook className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--facebook)] transition-transform duration-500 hover:scale-110 relative" />
-              <AiOutlineInstagram className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--instagram)] transition-transform duration-500 hover:scale-110 relative" />
-              <AiOutlineLinkedin className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--linkedin)] transition-transform duration-500 hover:scale-110 relative" />
+              <Link
+                href={"https://www.facebook.com/aecoeducation"}
+                target="_blank"
+              >
+                <AiOutlineFacebook className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--facebook)] transition-transform duration-500 hover:scale-110 relative" />
+              </Link>
+              <Link
+                href={
+                  "https://instagram.com/aecoeducation?igshid=NTc4MTIwNjQ2YQ=="
+                }
+                target="_blank"
+              >
+                <AiOutlineInstagram className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--instagram)] transition-transform duration-500 hover:scale-110 relative" />
+              </Link>
+              <Link
+                href={
+                  "https://www.linkedin.com/showcase/aeco-education-services/"
+                }
+                target="_blank"
+              >
+                <AiOutlineLinkedin className="text-2xl text-[var(--neutral-600)] hover:cursor-pointer hover:text-[var(--linkedin)] transition-transform duration-500 hover:scale-110 relative" />
+              </Link>
             </div>
             <div className="flex gap-2">
               <Link
@@ -326,16 +349,22 @@ const TopNav: FC<Props> = ({ children }) => {
         <div className="flex w-full h-full items-center justify-between">
           <div className="flex items-center">
             {navItems.map((item, index) => {
+              const pathName = item.name.toLowerCase().split(" ").join("-");
               return (
                 <div
                   key={index}
                   className={`relative flex px-4 h-16 items-center gap-[1px] lg:gap-[3px] justify-center hover:cursor-pointer hover:active-nav ${
-                    item.name.toLowerCase() === "home"
+                    pathName === "home" && active === "/"
+                      ? "active-nav"
+                      : pathName === active
                       ? "active-nav"
                       : "[&>*]:font-[500]"
                   } overflow-visible`}
                   onMouseEnter={() => setHoveredNav(item.name)}
                   onMouseLeave={() => setHoveredNav("")}
+                  onClick={() =>
+                    item.name.toLocaleLowerCase() === "home" && router.push("/")
+                  }
                 >
                   <p className="font-inter uppercase truncate text-[12px] lg:text-[16px] text-[var(--neutral-600)]">
                     {item.name}
@@ -496,15 +525,24 @@ const TopNav: FC<Props> = ({ children }) => {
             <p>Privacy Policy</p>
           </a>
           <div className="grid col-span-1 md:col-span-5 grid-cols-1 gap-y-6 lg:grid-cols-3">
-            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+            <Link
+              className="text-[var(--secondary-300)] font-semibold font-inter"
+              href={"/cookie-policy"}
+            >
               <p>Cookie Policy</p>
-            </a>
-            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+            </Link>
+            <Link
+              className="text-[var(--secondary-300)] font-semibold font-inter"
+              href={"/contact-us"}
+            >
               <p>Contact Us</p>
-            </a>
-            <a className="text-[var(--secondary-300)] font-semibold font-inter">
+            </Link>
+            <Link
+              className="text-[var(--secondary-300)] font-semibold font-inter"
+              href={"/environmental-policies"}
+            >
               <p>Environmental Policies</p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

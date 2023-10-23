@@ -9,19 +9,19 @@ const services = [
     title: "Study abroad",
     tag: "Explore our study abroad programmes",
     image: "/assets/study_abrod.jpeg",
-    link: "/",
+    link: "/student-placement/study-abroad",
   },
   {
     title: "International year programme",
     tag: "Unlock a world of opportunities with language preparation",
     image: "/assets/language_prep.jpeg",
-    link: "/",
+    link: "/pathways/international-year-programme",
   },
   {
-    title: "Local placement",
+    title: "Local student placement",
     tag: "Unlock new opportunities by working overseas",
     image: "/assets/work_overseas.jpeg",
-    link: "/",
+    link: "/student-placement/local-student-placement",
   },
 ];
 const settings = {

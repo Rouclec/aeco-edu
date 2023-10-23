@@ -3,7 +3,7 @@ import fs from "fs";
 import path from 'path'
 
 const getData = (docName: string) => {
-  const directoryPath = path.join(__dirname, "data");
+  const directoryPath = path.join(process.cwd(), "data");
   const content = fs.readFileSync(`${directoryPath}/${docName}.json`, "utf-8");
   return JSON.parse(content);
 };

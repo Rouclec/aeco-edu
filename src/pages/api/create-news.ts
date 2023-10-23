@@ -46,8 +46,7 @@ const saveData = (news: any[]) => {
   news.forEach((news) => {
     const newsString = JSON.stringify(news);
     const name = slugify(news.title.toLowerCase());
-    const directoryPath = path.join(__dirname, "data");
-
+    const directoryPath = path.join(process.cwd(), "data");
     try {
       if (!fs.existsSync(directoryPath)) {
         // Create the directory synchronously

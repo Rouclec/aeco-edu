@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
+import path from 'path'
 
-const getData = (path: string) => {
-  const content = fs.readFileSync(`data/${path}.json`, "utf-8");
+const getData = (docName: string) => {
+  const directoryPath = path.join(__dirname, "data");
+  const content = fs.readFileSync(`${directoryPath}/${docName}.json`, "utf-8");
   return JSON.parse(content);
 };
 

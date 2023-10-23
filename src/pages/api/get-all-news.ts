@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
 
-const directoryPath = "data";
+const directoryPath = path.join(__dirname, "data");
 
 function readJSONFilesInDirectory(directoryPath: string) {
   const files = fs.readdirSync(directoryPath);

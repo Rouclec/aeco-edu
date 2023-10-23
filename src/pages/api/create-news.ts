@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import slugify from "slugify";
+import path from "path";
 
 const news = [
   {
@@ -45,12 +46,13 @@ const saveData = (news: any[]) => {
   news.forEach((news) => {
     const newsString = JSON.stringify(news);
     const name = slugify(news.title.toLowerCase());
-    fs.writeFile(`data/${name}.json`, newsString, finished);
+    const directoryPath = path.join(__dirname, "data");
+    fs.writeFile(`${directoryPath}/${name}.json`, newsString, finished);
   });
 };
 
 const blog = (req: NextApiRequest, res: NextApiResponse) => {
-  saveData(req?.body?.news);
+  saveData(req.body?.news);
   res.send("OK");
 };
 

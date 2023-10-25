@@ -7,6 +7,10 @@ import FullNews from "./landing/FullNews";
 import SubNews from "./landing/SubNews";
 import Testimonial from "./landing/Testimonial";
 import Testimonials from "./landing/Testimonials";
+import StudyLocation from "./student-placement/study_location.component";
+import HIWItem from "./student-placement/hiw_item";
+import Card from "./about/card.component";
+import WorkCard from "./about/workCard.component";
 
 export {
   TopNav,
@@ -18,4 +22,8 @@ export {
   SubNews,
   Testimonial,
   Testimonials,
+  StudyLocation,
+  HIWItem,
+  Card,
+  WorkCard,
 };

@@ -60,7 +60,7 @@ const navItems = [
     subs: [
       {
         name: "Exam Preparations",
-        link: "/language-education/exam-preparations",
+        link: "/language-education/exam-preparation",
       },
       {
         name: "Language Trainings",
